@@ -1,29 +1,51 @@
-<mat-tab-group mat-align-tabs="start" style="padding: top 40px; padding-left: 2%;padding-right: 2%;">
+<!-- <mat-tab-group mat-align-tabs="start" style="padding: top 40px; padding-left: 2%;padding-right: 2%;">
   <mat-tab label="Visitante">
     <div fxLayout="row" fxLayoutAlign="start center" style="padding:2%;">
       <div style="margin: 0,5%;">
-        <mat-card class="example-card" 
-        fxFlex="0 1 calc(33.3% -11px)" 
-        fxFlex.lt-md="0 1 calc(50% - 11px)"
-        fxFlex.lt-sm="100%">
+        <mat-card class="example-card" fxFlex="0 1 calc(33.3% -11px)" fxFlex.lt-md="0 1 calc(50% - 11px)"
+          fxFlex.lt-sm="100%">
           <mat-card-header>
           </mat-card-header>
           <mat-card-content>
-              <form class="example-form">
-                <mat-form-field class="example-full-width">
-                  <mat-label>Nome:</mat-label>
-                  <input type="tel" matInput placeholder="Digite seu nome">
-                  <mat-icon matSuffix>mode_edit</mat-icon>
-                </mat-form-field>
-              </form>
+            <form class="example-form">
+              <mat-form-field class="example-full-width">
+                <mat-label>Nome:</mat-label>
+                <input type="tel" matInput placeholder="Digite seu nome">
+                <mat-icon matSuffix>mode_edit</mat-icon>
+              </mat-form-field>
+            </form>
           </mat-card-content>
         </mat-card>
       </div>
     </div>
 
 
-    
+
   </mat-tab>
   <mat-tab label="Produtor"> Área do Produtor </mat-tab>
   <mat-tab label="Agônomo"> Área do Agrônomo </mat-tab>
-</mat-tab-group>
+</mat-tab-group> -->
+
+<nav aria-label="breadcrumb">
+</nav>
+<div class="container">
+  <div class="card list-car">
+    <h5 class="card-header">Lista de usuarios</h5>
+    <div class="card-body">
+      <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Id</th>
+              <th scope="col">Nome</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of users">
+              <td>{{user.id}}</td>
+              <td>{{user.name}}</td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+  </div>
+</div>

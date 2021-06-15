@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Produtor } from 'src/app/shared/model/produtor.model';
-import { ProdutorService } from 'src/app/shared/service/produtor.service';
+import { UserService } from 'src/app/shared/service/user.service';
+import { User } from 'src/app/shared/model/user.model';
 
 @Component({
   selector: 'app-produtor-lista',
@@ -8,21 +8,18 @@ import { ProdutorService } from 'src/app/shared/service/produtor.service';
   styleUrls: ['./produtor-lista.component.css']
 })
 export class ProdutorListaComponent implements OnInit {
+  user = {} as User;
+  users: User[] = [];
 
-  listaDeProdutores: Produtor[] = [];
+  constructor(private userService: UserService) { }
 
-  constructor(
-    public pService:ProdutorService
-  ) { }
-
-  ngOnInit(): void {
-    this.buscaProdutor();
+  ngOnInit() {
+    this.getAllUsers();
   }
-  buscaProdutor(){
-  
-    this.pService.getProdutorWithFlag('nomeProdutor').subscribe(data =>{
-      this.listaDeProdutores = data.content;
-      console.log(this.listaDeProdutores);
+
+  getAllUsers() {
+    this.userService.getAllUsers().subscribe((users: User[]) => {
+      this.users = users;
     });
   }
 
